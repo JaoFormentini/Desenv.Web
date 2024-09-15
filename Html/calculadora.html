@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Calculadora Simples</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body{
+                background-image: url(https://cdna.artstation.com/p/assets/images/images/001/155/494/large/kwadwo-frimpong-amaning-albert.jpg?1441197449);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: top center;
+            }
+            ul{
+                align-content: center;
+                background-color: rgba(166, 166, 172, 0.5);
+                border-radius: 15px;
+                align-items: center;
+                text-align: center;
+                width: 39%;
+                margin-left: 30%;
+                margin-right: 30%;
+            }
+            input{
+                align-items: center;
+                text-align: center;
+                border-radius: 5px;
+                margin: 5px;
+                padding: 5px;
+                width: 30%;
+            }
+            button{
+                background-color: #47c0f0;
+                border-radius: 8px;
+                padding: 5px;
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <ul>
+            <h2>Calculadora Simples</h2>
+
+            <input type="number" id="num1" placeholder="Digite o primeiro numero"><br>
+            <input type="number" id="num2" placeholder="Digite o segundo numero">
+            
+            <br><br>
+
+            <button onclick="calcular('+')">Somar</button>
+            <button onclick="calcular('-')">Subtrair</button>
+            <button onclick="calcular('/')">Dividir</button>
+            <button onclick="calcular('*')">Multiplicar</button>
+            <button onclick="calcular('C')">Limpar</button>
+
+            <br>
+
+            <h2 id="Resultado">Resultado é igual a: </h2>
+        </ul>
+
+        <script>
+            function calcular(operacao){
+                let x = parseFloat(document.getElementById("num1").value);
+                let y = parseFloat(document.getElementById("num2").value);
+                let resultado;
+
+                switch(operacao){
+                    case '+':
+                        resultado = x +y;
+                        break;
+                    case '-':
+                        resultado = x - y;
+                        break;
+                    case '/':
+                        resultado = y !== 0 ? x / y: "Erro, divisao feita por 0";
+                        break;        
+                    case '*':
+                        resultado = x * y;
+                        break;
+                    case 'C':
+                        document.getElementById("num1").value ="";
+                        document.getElementById("num2").value ="";
+                        resultado = ""
+                        break;
+                }
+
+                document.getElementById("Resultado").textContent = "O resultado é: "+resultado;
+            }
+
+        </script>
+
+    </body>
+    
+</html>
